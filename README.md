@@ -1,5 +1,5 @@
-# SimpleServer
-SimpleServer is a toy socket server project based on Linux socket.
+# SimpleSocket
+SimpleSocket is a toy socket server project based on Linux socket.
 
 We have use this library to compete these project:
 
