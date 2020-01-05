@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/status-on%20develop-orange) 
 ![](https://img.shields.io/badge/language-c++-green.svg)
-![](https://img.shields.io/github/last-commit/aptxous/SimpleSocket)
+![](https://img.shields.io/github/last-commit/aptxous/SimpleServer)
 
 SimpleSocket is a toy socket server project based on Linux socket.
 
