@@ -24,12 +24,12 @@ If you want to see how SimpleSocket will perform, please check the links above.
 ## Tack List
 
 - [x] Initial Project
-- [] Add Socket Class
-- [] Add TcpSocket Class
-- [] Add UdpSocket Class
-- [] Add TcpServer Class
+- [ ] Add Socket Class
+- [ ] Add TcpSocket Class
+- [ ] Add UdpSocket Class
+- [ ] Add TcpServer Class
 - [x] Add UdpServer Class
 - [x] Add Logger Class
 - [x] Add SimpleSocket Class
-- [] Add PackageManager Class
-- [] Add Package Class
+- [ ] Add PackageManager Class
+- [ ] Add Package Class
