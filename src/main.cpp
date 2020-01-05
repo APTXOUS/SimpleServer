@@ -17,10 +17,6 @@ int work(SimpleSocket::SimpleSocket *server, struct sockaddr_in client_addr, int
 int main()
 {
     SimpleSocket::SimpleSocket server(UDP_MODE);
-
-
-    
-    
     try
     {
         server.Run();

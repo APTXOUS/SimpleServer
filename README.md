@@ -16,6 +16,36 @@ All of those are course projects, so we need time to divide the SimpleSocket lib
 
 If you want to see how SimpleSocket will perform, please check the links above.
 
+## How to use
+
+```c++
+#include <iostream>
+#include "simplesocket.h"
+#include "Common.h"
+#include<sys/types.h> 
+#include<sys/stat.h>
+
+
+int work(SimpleSocket::SimpleSocket *server, struct sockaddr_in client_addr, int nbytes, char *buff)
+{
+    std::cout<<buff<<std::endl;
+    return 0;
+}
+
+int main()
+{
+    SimpleSocket::SimpleSocket server(UDP_MODE);
+    try
+    {
+        server.Run();
+    }catch (const char* msg) {
+        std::cerr << msg << std::endl;
+    }
+    return 0;
+}
+
+```
+
 ## Develop List
 ### 2020 01 05
 * add simple tested udpserver
