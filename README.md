@@ -16,3 +16,20 @@ All of those are course projects, so we need time to divide the SimpleSocket lib
 
 If you want to see how SimpleSocket will perform, please check the links above.
 
+## Develop List
+### 2020 01 05
+* add simple tested udpserver
+* add simple untested tcpserver
+
+## Tack List
+
+- [x] Initial Project
+- [] Add Socket Class
+- [] Add TcpSocket Class
+- [] Add UdpSocket Class
+- [] Add TcpServer Class
+- [x] Add UdpServer Class
+- [x] Add Logger Class
+- [x] Add SimpleSocket Class
+- [] Add PackageManager Class
+- [] Add Package Class
