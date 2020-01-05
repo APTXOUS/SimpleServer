@@ -65,7 +65,7 @@ int UdpServer::MainActivity()
         return dealpack(this, res, client_addr, buff);
 }
 
-int UdpServer::SetGlobalCallBack(int (*callback_func)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff))
+int UdpServer::SetGlobalCallBack(int (*callback_func)(class UdpServer *server,struct sockaddr_in client_addr,  int nbytes, char *buff))
 {
     this->callback=callback_func;
 }

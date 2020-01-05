@@ -12,7 +12,7 @@ public:
     int nbytes;
     struct sockaddr_in client_addr;
 
-    int (*callback)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff);
+    int (*callback)(class UdpServer *server, struct sockaddr_in client_addr,int nbytes,  char *buff);
 
 private:
     int port;
@@ -30,7 +30,7 @@ public:
 
     int MainActivity();
 
-    int SetGlobalCallBack(int (*callback)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff));
+    int SetGlobalCallBack(int (*callback)(class UdpServer *server, struct sockaddr_in client_addr,  int nbytes,char *buff));
 
     int Recv();
     int Send(char *buff, struct sockaddr_in client_addr, int count);

@@ -20,7 +20,7 @@ Status_Type SimpleSocket::InitServer(int port)
     }
 }
 
-Status_Type SimpleSocket::SetGlobalCallBack(Status_Type (*callback_func)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff))
+Status_Type SimpleSocket::SetGlobalCallBack(Status_Type (*callback_func)(class UdpServer *server, struct sockaddr_in client_addr,int nbytes, char *buff))
 {
     UdpServer::SetGlobalCallBack(callback_func);
     return OK;

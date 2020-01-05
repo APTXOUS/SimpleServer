@@ -11,6 +11,7 @@ typedef int Status_Type;
 
 namespace SimpleSocket
 {
+
 class SimpleSocket : public UdpServer, TcpServer
 {
 
@@ -19,7 +20,7 @@ protected:
 
 public:
     SimpleSocket(Mode_Type type);
-    Status_Type SetGlobalCallBack(Status_Type (*callback_func)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff));
+    Status_Type SetGlobalCallBack(Status_Type (*callback_func)(class UdpServer *server, struct sockaddr_in client_addr, int nbytes, char *buff));
     Status_Type InitServer(int port);
     Status_Type Run();
     Status_Type RunOneTime();
