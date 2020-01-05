@@ -7,5 +7,5 @@ We have use this library to compete these project:
 2. [Game Server](https://github.com/TaihouDaisuki/GameSever): A plane game backend progream. The game client is here:[AircraftWarClient](https://github.com/kagaya85/AircraftWarClient)
 3. Analog bank teller communication protocol. 
 
-All of those are course projects, so we need time to divide the SimpleServer library from those projects.
+All of those are course projects, so we need time to divide the SimpleSocket library from those projects.
 
