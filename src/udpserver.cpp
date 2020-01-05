@@ -2,12 +2,12 @@
 
 
 /* public */
-UdpServer::UDPServer()
+UdpServer::UdpServer()
 {
     strcpy(ip,"0.0.0.0");
     // nothing to do
 }
-UdpServer::~UDPServer()
+UdpServer::~UdpServer()
 {
     // nothing to do
 }
@@ -24,11 +24,11 @@ int UdpServer::Initialize(int Port)
     int ret = bind(server_fd, (struct sockaddr *)&addr, sizeof(addr));
     if (ret < 0)
     {
-        cerr << "Error: bind" << endl;
+        std::cerr << "Error: bind" << std::endl;
         return ERROR;
     }
     
-    cout << "----------Server Start Running----------" << endl;
+    std::cout << "----------Server Start Running----------" << std::endl;
     return OK;
 }
 
@@ -65,4 +65,8 @@ int UdpServer::MainActivity()
         return dealpack(this, res, client_addr, buff);
 }
 
+int UdpServer::SetGlobalCallBack(int (*callback_func)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff))
+{
+    this->callback=callback_func;
+}
 /* private */

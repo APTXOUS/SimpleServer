@@ -1,7 +1,7 @@
 #ifndef UDPSERVER
 #define UDPSERVER
 
-#include "Common.h"
+#include "common.h"
 
 
 class UdpServer
@@ -12,7 +12,7 @@ public:
     int nbytes;
     struct sockaddr_in client_addr;
 
-    int (*callback)(UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff);
+    int (*callback)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff);
 
 private:
     int port;
@@ -29,6 +29,8 @@ public:
     int Initialize(int);
 
     int MainActivity();
+
+    int SetGlobalCallBack(int (*callback)(class UdpServer *server, int nbytes, struct sockaddr_in client_addr, char *buff));
 
     int Recv();
     int Send(char *buff, struct sockaddr_in client_addr, int count);

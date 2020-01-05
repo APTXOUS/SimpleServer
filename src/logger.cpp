@@ -2,9 +2,7 @@
 #include <iostream>
 #include <sys/file.h>
 #include <string.h>
-#include "defines.h"
-
-extern Config g_config;
+#include "define.h"
 
 Logger::Logger()
 {
@@ -93,7 +91,7 @@ void Logger::log(const std::string &strInfo, int type)
         return;
     }
 
-    if (g_config.showDbg | type)
+    if (type)
     {
         std::cout << getCurrentTime().c_str() << " [" << m_devId.c_str() << "] " << strInfo << std::endl;
     }
@@ -107,7 +105,8 @@ void Logger::log(const std::string &strInfo, int type)
             strcat(temp, m_logPath);
             strcat(temp, m_logName);
 
-            if (g_config.delLog == 1)
+            // if (g_config.delLog == 1)
+            if (1)
                 m_pFileStream = fopen(temp, "w");
             else
                 m_pFileStream = fopen(temp, "a+");

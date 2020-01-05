@@ -1,5 +1,5 @@
 # ！bash
-TARGET = ts
+TARGET = main
 OBJDIR = ./obj
 SRCDIR = ./src
 INCLUDE = ./include
@@ -9,7 +9,7 @@ RM = -rm -f
 
 all : $(TARGET)
 
-ts : $(SRCDIR)/main.cpp $(SRCDIR)/Tcpsocket.cpp $(SRCDIR)/Logger.cpp
+main : $(SRCDIR)/main.cpp $(SRCDIR)/packagemanager.cpp $(SRCDIR)/logger.cpp $(SRCDIR)/udpserver.cpp $(SRCDIR)/simplesocket.cpp $(SRCDIR)/tcpserver.cpp
 	$(CC) $(CFLAGS) $^ -o $@ -I $(INCLUDE) -w 
 
 .PHONY : clean
