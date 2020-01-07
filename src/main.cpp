@@ -14,7 +14,7 @@ int work(UdpServer *server, struct sockaddr_in client_addr, int nbytes, char *bu
 
 int main()
 {
-    SimpleSocket::SimpleSocket server(UDP_MODE);
+    SimpleSocket::SimpleSocket server(UDP_MODE|SERVER_MODE);
     server.InitServer(9090);
     server.SetGlobalCallBack(work);
     try

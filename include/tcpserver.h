@@ -19,4 +19,5 @@ public:
   int Connect(int port, const char *ip);
   int status();
   int updateMaxfd(fd_set rfds, int maxfd);
+  int hasnewconnect();
 };

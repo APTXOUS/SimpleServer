@@ -23,7 +23,62 @@ int TcpServer::init(int port, const char *ip, int mode)
     }
     else if (mode == SERVER_MODE)
     {
-        return 0;
+        int sock = socket(AF_INET, SOCK_STREAM, 0);
+        if (sock < 0)
+        {
+            close(sock);
+            return -1; //socket create error
+        }
+        int flags = fcntl(sock, F_GETFL, 0);
+        if (fcntl(sock, F_SETFL, flags | O_NONBLOCK) < 0)
+        {
+           // perror("fcntl");
+            close(sock);
+            return -1;
+        }
+        FD_ZERO(&rfds);
+        FD_ZERO(&rfds_b);
+        FD_ZERO(&wfds);
+        FD_ZERO(&wfds_b);
+        FD_SET(sock, &rfds);
+        FD_SET(sock, &wfds);
+        rfds_b = rfds;
+        wfds_b = wfds;
+        
+        struct sockaddr_in local;
+        local.sin_family = AF_INET;
+        local.sin_port = htons(port);
+        local.sin_addr.s_addr = inet_addr(ip);
+        socklen_t len = sizeof(local);
+        int rcv_size=1;
+        if (-1 == setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &rcv_size, sizeof(rcv_size)))
+        {
+            close(sock);
+            return -1;
+        }
+        if (select(sock + 1, &rfds, &wfds, NULL, NULL) > 0)
+        {
+            if (bind(sock, (struct sockaddr *)&local, len) < 0)
+            {
+               close(sock);
+                return -1;
+            }
+        }
+        rfds = rfds_b;
+        wfds = wfds_b;
+        if (select(sock + 1, &rfds, &wfds, NULL, NULL) > 0)
+            if (listen(sock,100 ) < 0)
+            {
+               close(sock);
+                return -1;
+            }
+        this->Socket = sock;
+        this->port = port;
+        FD_ZERO(&rfds);
+        FD_ZERO(&rfds_b);
+        FD_ZERO(&wfds);
+        FD_ZERO(&wfds_b);
+        return sock;
     }
     else
     {
@@ -105,4 +160,17 @@ int TcpServer::updateMaxfd(fd_set fds, int maxfd)
             new_maxfd = i;
     }
     return new_maxfd;
+}
+
+int TcpServer::hasnewconnect()
+{
+    struct timeval timeout;
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 10;
+
+    FD_ZERO(&rfds);
+    FD_ZERO(&wfds);
+    FD_SET(Socket, &rfds);
+    FD_SET(Socket, &wfds);
+    return select(Socket + 1, &rfds, &wfds, NULL, &timeout);
 }

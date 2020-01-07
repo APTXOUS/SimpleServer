@@ -49,6 +49,10 @@ int main()
 ```
 
 ## Develop List
+### 2020 01 07
+* add mode control
+* add task: Buffer and Buffermanager
+
 ### 2020 01 05
 * add simple tested udpserver
 * add simple untested tcpserver
@@ -65,3 +69,5 @@ int main()
 - [x] Add SimpleSocket Class
 - [ ] Add PackageManager Class
 - [ ] Add Package Class
+- [ ] Add BufferManager Class
+- [ ] Add Buffer Class
