@@ -1,8 +1,8 @@
 #include <iostream>
 #include "simplesocket.h"
 #include "Common.h"
-#include<sys/types.h> 
-#include<sys/stat.h>
+#include <sys/types.h> 
+#include <sys/stat.h>
 #include <string>
 #include <cstring>
 
@@ -23,5 +23,6 @@ int main()
     }catch (const char* msg) {
         std::cerr << msg << std::endl;
     }
+    std::cout<<"The server quit!"<<std::endl;
     return 0;
 }

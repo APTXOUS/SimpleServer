@@ -1,0 +1,10 @@
+# 并将名称保存到 DIR_LIB_SRCS 变量
+aux_source_directory(. DIR_LIB_SRCS)
+
+# 添加头文件
+include_directories(../include)
+
+# 生成链接库
+add_library (simplesocket ${DIR_LIB_SRCS})
+
+#ADD_EXECUTABLE(Sample1 ${DIR_LIB_SRCS})

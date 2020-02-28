@@ -3,11 +3,11 @@
 #include "udpserver.h"
 #include "tcpserver.h"
 
-#define TCP_MODE 1
-#define UDP_MODE 0
+#define TCP_MODE 4
+#define UDP_MODE 8
 
-#define SERVER_MODE 2
-#define CLIENT_MODE 0
+#define SERVER_MODE 1
+#define CLIENT_MODE 2
 
 typedef int Mode_Type;
 typedef int Status_Type;

@@ -106,8 +106,8 @@
 
 #define SND_KICK            255
 
-#define SERVER_MODE 2
-#define CLIENT_MODE 0
+#define SERVER_MODE 1
+#define CLIENT_MODE 2
 
 
 #endif

@@ -16,6 +16,13 @@ All of those are course projects, so we need time to divide the SimpleSocket lib
 
 If you want to see how SimpleSocket will perform, please check the links above.
 
+## Build
+```bash
+mkdir build
+cmake ..
+make
+```
+
 ## How to use
 
 ```c++
@@ -49,6 +56,9 @@ int main()
 ```
 
 ## Develop List
+### 2020 02 28
+* create CMakeLists 
+
 ### 2020 01 07
 * add mode control
 * add task: Buffer and Buffermanager

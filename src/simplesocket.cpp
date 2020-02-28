@@ -9,6 +9,7 @@ SimpleSocket::SimpleSocket(Mode_Type type)
 
 Status_Type SimpleSocket::InitServer(int port)
 {
+
     if(socket_mode_ & UDP_MODE==UDP_MODE)
     {
         if(socket_mode_ & SERVER_MODE ==SERVER_MODE)
@@ -22,7 +23,7 @@ Status_Type SimpleSocket::InitServer(int port)
         else if (socket_mode_ & CLIENT_MODE ==CLIENT_MODE)
         {
             /* code */
-          
+            throw "Can't initialze server as UDP|CLIENT";
         }
         else
         {
@@ -67,7 +68,7 @@ Status_Type SimpleSocket::SetGlobalCallBack(Status_Type (*callback_func)(class U
 
 Status_Type SimpleSocket:: Run()
 {
-    if(socket_mode_==UDP_MODE)
+    if(socket_mode_& UDP_MODE==UDP_MODE)
     {
         while (1)
         {
@@ -75,14 +76,26 @@ Status_Type SimpleSocket:: Run()
                 usleep(100000);
         }
     }
+    else
+    {
+        /* code */
+         throw "Can't run server";
+    }
+    
 }
 
 Status_Type SimpleSocket:: RunOneTime()
 {
-    if(socket_mode_==UDP_MODE)
+    if(socket_mode_& UDP_MODE==UDP_MODE)
     {
         return UdpServer::MainActivity();
     }
+    else
+    {
+        /* code */
+        throw "Can't run server";
+    }
+    
 }
 
 
